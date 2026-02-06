@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10 Feb — Teddy Day</title>
+<title>Teddy Day 🧸</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🔒 MOBILE SAFE BODY */
+/* MOBILE SAFE BODY */
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#ffe0ec,#fff4f8);
-  color:#5a2a3a;
+
+  /* 🌙 DARK SOFT GRADIENT (LIKE IMAGE) */
+  background:
+    radial-gradient(circle at top left,#6b4a4a 0%, transparent 55%),
+    radial-gradient(circle at bottom right,#3a1f2a 0%, transparent 60%),
+    linear-gradient(135deg,#1a0f15,#3b1f2c,#1a0f15);
+
+  color:#f5e9ec;
 
   min-height:100svh;
   padding:20px 14px calc(28px + env(safe-area-inset-bottom));
@@ -23,11 +29,19 @@ body{
   display:flex;
   justify-content:center;
   align-items:flex-start;
-
   overflow-y:auto;
 }
 
-/* 🧸 TEDDY BACKGROUND */
+/* 🌫️ SOFT DEPTH OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(to bottom,transparent,rgba(0,0,0,.35));
+  pointer-events:none;
+}
+
+/* 🧸 FLOATING MINI TEDDIES */
 .teddy-bg{
   position:fixed;
   inset:0;
@@ -37,148 +51,116 @@ body{
 
 .teddy{
   position:absolute;
-  font-size:64px;
-  opacity:.18;
-  animation:float 18s linear infinite;
+  font-size:20px;
+  opacity:.25;
+  animation:float 22s linear infinite;
 }
-
-.t1{left:5%; top:95%; animation-delay:0s}
-.t2{left:20%; top:100%; animation-delay:4s}
-.t3{left:40%; top:92%; animation-delay:8s}
-.t4{left:60%; top:105%; animation-delay:2s}
-.t5{left:75%; top:98%; animation-delay:6s}
-.t6{left:90%; top:110%; animation-delay:10s}
-
-.pink{color:#ff8fab}
-.blue{color:#9ad0ff}
-.yellow{color:#ffd166}
-.purple{color:#cdb4db}
-.peach{color:#ffb4a2}
-.mint{color:#9bf6ff}
 
 @keyframes float{
-  from{transform:translateY(0) rotate(0deg)}
-  to{transform:translateY(-130vh) rotate(360deg)}
+  from{transform:translateY(0)}
+  to{transform:translateY(-120vh)}
 }
 
-/* ✨ SOFT LIGHT MOVEMENT */
-.bg-light{
-  position:fixed;
-  inset:-30%;
-  background:
-    radial-gradient(circle at 30% 30%, #ffffffaa, transparent 40%),
-    radial-gradient(circle at 70% 60%, #ffd6e8aa, transparent 45%);
-  animation:moveLight 16s ease-in-out infinite alternate;
-  z-index:1;
-}
-@keyframes moveLight{
-  from{transform:translate(0,0)}
-  to{transform:translate(-40px,-60px)}
-}
+/* random positions */
+.t1{left:8%; top:110%; animation-delay:0s}
+.t2{left:22%; top:120%; animation-delay:6s}
+.t3{left:40%; top:115%; animation-delay:12s}
+.t4{left:58%; top:130%; animation-delay:3s}
+.t5{left:75%; top:118%; animation-delay:9s}
+.t6{left:88%; top:125%; animation-delay:15s}
 
-/* 📦 CONTENT CARD */
+/* 🎁 CARD */
 .card{
   position:relative;
   z-index:2;
-  width:min(92vw,420px);
+  width:min(92vw,380px);
   text-align:center;
-  padding:32px 20px 36px;
-  margin-top:8px;
+  padding:28px 22px;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(16px);
+  border-radius:22px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  margin-top:10px;
 }
 
-/* 📝 TEXT */
-.line{
-  font-size:17px;
-  line-height:1.9;
+/* TEXT */
+.title{
+  font-family:'Great Vibes',cursive;
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.teddy-main{
+  font-size:48px;
+  margin:6px 0 10px;
+}
+
+.text{
+  font-size:14.5px;
+  line-height:1.7;
   opacity:0;
   animation:fadeIn 1.6s ease forwards;
 }
-.small{
-  font-size:14px;
-  opacity:.7;
-}
+
 @keyframes fadeIn{
   to{opacity:1}
 }
 
-/* ⏱️ ANIMATION DELAYS */
-#l1{animation-delay:1s}
-#l2{animation-delay:5s}
-#l3{animation-delay:9s}
-#l4{animation-delay:13s}
-#final{animation-delay:18s}
+/* animation delays */
+.l1{animation-delay:1s}
+.l2{animation-delay:3.5s}
+.l3{animation-delay:6.5s}
+.l4{animation-delay:9.5s}
 
-/* 🧾 FOOTER SIGNATURE */
+/* FOOTER */
 .footer{
-  margin-top:26px;
-  margin-bottom:12px;
-  font-size:14px;
+  margin-top:14px;
+  font-size:13px;
   opacity:0;
-  animation:footerIn 2s ease forwards;
-  animation-delay:26s;
+  animation:footerIn 1.5s ease forwards;
+  animation-delay:13s;
 }
+
 @keyframes footerIn{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:.9;transform:translateY(0)}
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:.85;transform:translateY(0)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND TEDDYS -->
+<!-- FLOATING TEDDIES -->
 <div class="teddy-bg">
-  <div class="teddy t1 pink">🧸</div>
-  <div class="teddy t2 blue">🧸</div>
-  <div class="teddy t3 yellow">🧸</div>
-  <div class="teddy t4 purple">🧸</div>
-  <div class="teddy t5 peach">🧸</div>
-  <div class="teddy t6 mint">🧸</div>
+  <div class="teddy t1">🧸</div>
+  <div class="teddy t2">🧸</div>
+  <div class="teddy t3">🧸</div>
+  <div class="teddy t4">🧸</div>
+  <div class="teddy t5">🧸</div>
+  <div class="teddy t6">🧸</div>
 </div>
 
-<div class="bg-light"></div>
-
-<!-- MAIN CONTENT -->
+<!-- CONTENT -->
 <div class="card">
 
-  <div class="line small" id="l1">
-    10 Feb — Teddy Day
+  <div class="title">For You 🧸</div>
+
+  <div class="teddy-main">🧸</div>
+
+  <div class="text l1">
+    Ye happy teddy tumhare liye,
   </div>
 
-  <div class="line" id="l2">
-    आज teddy देने का दिन है…
+  <div class="text l2">
+    kyunki tumhari smile sabse cute hai 😊
   </div>
 
-  <div class="line" id="l3">
-    पर <b>Dhruti</b>,<br>
-    teddy का मतलब खिलौना नहीं होता।
+  <div class="text l3">
+    Happy Teddy Day 💙
   </div>
 
-  <div class="line" id="l4">
-    teddy का मतलब होता है —<br>
-    कोई जो बिना बोले पास बैठा हो।
-  </div>
-
-  <div class="line" id="final">
-    ये teddy soft है,<br>
-    क्योंकि इसे पकड़ना नहीं पड़ता।<br><br>
-
-    ये teddy बोलता नहीं,<br>
-    क्योंकि इसे साबित नहीं करना पड़ता।<br><br>
-
-    Dhruti,<br>
-    जब भी तुम्हें लगे कि तुम अकेली हो,<br>
-    बस इतना याद रखना —<br>
-    कोई है जो दूर होकर भी<br>
-    तुम्हारे पास बैठा है।<br><br>
-
-    आज Teddy Day है,<br>
-    और आज मैंने तुम्हें teddy नहीं दिया…<br>
-    <b>मैं खुद यहीं छोड़ गया हूँ।</b>
-  </div>
-
-  <div class="footer">
-    — Tumhara Best Friend (Teddy) 🧸
+  <div class="text l4">
+    — tumhara bestest friend
   </div>
 
 </div>
