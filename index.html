@@ -3,194 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10 Feb — Teddy Day 🧸</title>
+<title>10 Feb — Teddy Day</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
 
+/* 🔒 MOBILE SAFE BODY */
 body{
   font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffe0ec,#fff4f8);
+  color:#5a2a3a;
+
+  min-height:100svh;
+  padding:20px 14px calc(28px + env(safe-area-inset-bottom));
+  padding-top:calc(20px + env(safe-area-inset-top));
+
   display:flex;
-  align-items:center;
   justify-content:center;
-  overflow:hidden;
-  color:#fff;
-  background:
-    radial-gradient(60% 40% at 15% 10%, #ffd6a555, transparent 60%),
-    radial-gradient(50% 40% at 90% 20%, #ff9a8b55, transparent 60%),
-    radial-gradient(40% 30% at 50% 90%, #fbc2eb55, transparent 60%),
-    linear-gradient(135deg,#3b1d2a,#1f0f17);
+  align-items:flex-start;
+
+  overflow-y:auto;
 }
 
-/* card */
-.card{
-  width:min(92vw,420px);
-  background:rgba(255,255,255,.14);
-  backdrop-filter:blur(18px);
-  border-radius:30px;
-  padding:26px 22px;
-  text-align:center;
-  box-shadow:0 30px 80px rgba(0,0,0,.55);
-  animation:pop .8s ease;
-}
-@keyframes pop{
-  from{opacity:0;transform:scale(.9)}
-  to{opacity:1;transform:scale(1)}
-}
-
-/* text */
-.small{font-size:14px;opacity:.9}
-.name{
-  font-family:'Great Vibes',cursive;
-  font-size:42px;
-  margin:6px 0;
-}
-.question{
-  margin-top:10px;
-  font-size:16px;
-}
-
-/* moods */
-.moods{
-  margin-top:22px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-.mood{
-  padding:16px 10px;
-  border-radius:20px;
-  cursor:pointer;
-  background:rgba(255,255,255,.2);
-  transition:.3s ease;
-  font-size:15px;
-}
-.mood:hover{
-  transform:scale(1.08);
-  background:rgba(255,255,255,.32);
-}
-
-/* result */
-.result{display:none}
-.teddy{
-  font-size:72px;
-  margin:10px 0;
-  animation:grow 1s ease;
-}
-@keyframes grow{
-  from{transform:scale(0)}
-  to{transform:scale(1)}
-}
-.text{
-  margin-top:12px;
-  line-height:1.8;
-}
-.text span{
-  display:block;
-  margin:4px 0;
-  text-shadow:0 2px 10px rgba(0,0,0,.4);
-}
-.footer{
-  margin-top:16px;
-  font-size:13px;
-  opacity:.85;
-}
-
-/* floating teddies */
-.float{
+/* 🧸 TEDDY BACKGROUND */
+.teddy-bg{
   position:fixed;
-  bottom:-10%;
-  font-size:18px;
-  animation:floatUp linear infinite;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+.teddy{
+  position:absolute;
+  font-size:64px;
+  opacity:.18;
+  animation:float 18s linear infinite;
+}
+
+.t1{left:5%; top:95%; animation-delay:0s}
+.t2{left:20%; top:100%; animation-delay:4s}
+.t3{left:40%; top:92%; animation-delay:8s}
+.t4{left:60%; top:105%; animation-delay:2s}
+.t5{left:75%; top:98%; animation-delay:6s}
+.t6{left:90%; top:110%; animation-delay:10s}
+
+.pink{color:#ff8fab}
+.blue{color:#9ad0ff}
+.yellow{color:#ffd166}
+.purple{color:#cdb4db}
+.peach{color:#ffb4a2}
+.mint{color:#9bf6ff}
+
+@keyframes float{
+  from{transform:translateY(0) rotate(0deg)}
+  to{transform:translateY(-130vh) rotate(360deg)}
+}
+
+/* ✨ SOFT LIGHT MOVEMENT */
+.bg-light{
+  position:fixed;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 30% 30%, #ffffffaa, transparent 40%),
+    radial-gradient(circle at 70% 60%, #ffd6e8aa, transparent 45%);
+  animation:moveLight 16s ease-in-out infinite alternate;
+  z-index:1;
+}
+@keyframes moveLight{
+  from{transform:translate(0,0)}
+  to{transform:translate(-40px,-60px)}
+}
+
+/* 📦 CONTENT CARD */
+.card{
+  position:relative;
+  z-index:2;
+  width:min(92vw,420px);
+  text-align:center;
+  padding:32px 20px 36px;
+  margin-top:8px;
+}
+
+/* 📝 TEXT */
+.line{
+  font-size:17px;
+  line-height:1.9;
+  opacity:0;
+  animation:fadeIn 1.6s ease forwards;
+}
+.small{
+  font-size:14px;
   opacity:.7;
 }
-@keyframes floatUp{
-  to{transform:translateY(-120vh) rotate(360deg);opacity:0}
+@keyframes fadeIn{
+  to{opacity:1}
+}
+
+/* ⏱️ ANIMATION DELAYS */
+#l1{animation-delay:1s}
+#l2{animation-delay:5s}
+#l3{animation-delay:9s}
+#l4{animation-delay:13s}
+#final{animation-delay:18s}
+
+/* 🧾 FOOTER SIGNATURE */
+.footer{
+  margin-top:26px;
+  margin-bottom:12px;
+  font-size:14px;
+  opacity:0;
+  animation:footerIn 2s ease forwards;
+  animation-delay:26s;
+}
+@keyframes footerIn{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:.9;transform:translateY(0)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- START -->
-<div class="card" id="start">
-  <div class="small">10 Feb — Teddy Day 🧸</div>
-  <div class="name">Dhruti</div>
-  <div class="question">
-    Aaj Teddy Day hai 🤍<br>
-    tumhara mood kaisa hai?
-  </div>
-
-  <div class="moods">
-    <div class="mood" onclick="pick('happy')">😊 Happy</div>
-    <div class="mood" onclick="pick('sleepy')">😴 Sleepy</div>
-    <div class="mood" onclick="pick('comfort')">🤗 Comfort</div>
-    <div class="mood" onclick="pick('crazy')">😜 Crazy</div>
-  </div>
+<!-- BACKGROUND TEDDYS -->
+<div class="teddy-bg">
+  <div class="teddy t1 pink">🧸</div>
+  <div class="teddy t2 blue">🧸</div>
+  <div class="teddy t3 yellow">🧸</div>
+  <div class="teddy t4 purple">🧸</div>
+  <div class="teddy t5 peach">🧸</div>
+  <div class="teddy t6 mint">🧸</div>
 </div>
 
-<!-- RESULT -->
-<div class="card result" id="result">
-  <div class="name">For You 🧸</div>
-  <div class="teddy">🧸</div>
-  <div class="text" id="text"></div>
+<div class="bg-light"></div>
+
+<!-- MAIN CONTENT -->
+<div class="card">
+
+  <div class="line small" id="l1">
+    10 Feb — Teddy Day
+  </div>
+
+  <div class="line" id="l2">
+    आज teddy देने का दिन है…
+  </div>
+
+  <div class="line" id="l3">
+    पर <b>Dhruti</b>,<br>
+    teddy का मतलब खिलौना नहीं होता।
+  </div>
+
+  <div class="line" id="l4">
+    teddy का मतलब होता है —<br>
+    कोई जो बिना बोले पास बैठा हो।
+  </div>
+
+  <div class="line" id="final">
+    ये teddy soft है,<br>
+    क्योंकि इसे पकड़ना नहीं पड़ता।<br><br>
+
+    ये teddy बोलता नहीं,<br>
+    क्योंकि इसे साबित नहीं करना पड़ता।<br><br>
+
+    Dhruti,<br>
+    जब भी तुम्हें लगे कि तुम अकेली हो,<br>
+    बस इतना याद रखना —<br>
+    कोई है जो दूर होकर भी<br>
+    तुम्हारे पास बैठा है।<br><br>
+
+    आज Teddy Day है,<br>
+    और आज मैंने तुम्हें teddy नहीं दिया…<br>
+    <b>मैं खुद यहीं छोड़ गया हूँ।</b>
+  </div>
+
   <div class="footer">
-    Happy Teddy Day 💙<br>
-    – tumhara bestest friend
+    — Tumhara Best Friend (Teddy) 🧸
   </div>
+
 </div>
-
-<script>
-const data={
- happy:[
-  ["Ye happy teddy tumhare liye,", "#fff1c1"],
-  ["kyunki tumhari smile sabse cute hai 😊", "#fff"]
- ],
- sleepy:[
-  ["Ye sleepy teddy tumhare liye,", "#ffe6f0"],
-  ["jab neend aaye aur duniya slow lage 😴", "#fff"]
- ],
- comfort:[
-  ["Ye comfort teddy tumhare liye,", "#d8f3ff"],
-  ["jab bas chup-chaap support chahiye 🤗", "#fff"]
- ],
- crazy:[
-  ["Ye crazy teddy tumhare liye,", "#ffd6e8"],
-  ["kyunki tumhari craziness hi special hai 😜", "#fff"]
- ]
-};
-
-function pick(type){
- document.getElementById("start").style.display="none";
- document.getElementById("result").style.display="block";
-
- const box=document.getElementById("text");
- box.innerHTML="";
- data[type].forEach(l=>{
-  const s=document.createElement("span");
-  s.textContent=l[0];
-  s.style.color=l[1];
-  box.appendChild(s);
- });
-
- floats();
-}
-
-function floats(){
- for(let i=0;i<10;i++){
-  const f=document.createElement("div");
-  f.className="float";
-  f.textContent="🧸";
-  f.style.left=Math.random()*100+"vw";
-  f.style.animationDuration=(5+Math.random()*4)+"s";
-  document.body.appendChild(f);
-  setTimeout(()=>f.remove(),9000);
- }
-}
-</script>
 
 </body>
 </html>
